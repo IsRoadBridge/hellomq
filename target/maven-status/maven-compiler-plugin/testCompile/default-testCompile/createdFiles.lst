@@ -1,0 +1,10 @@
+hellomq\HellomqApplicationTests.class
+hellomq\hello\HelloConsumer.class
+hellomq\work\Consumer2$1.class
+hellomq\work\Consumer1$1.class
+hellomq\work\Provider.class
+hellomq\work\Consumer1.class
+hellomq\hello\HelloProvider.class
+hellomq\utils\MqUtil.class
+hellomq\work\Consumer2.class
+hellomq\hello\HelloConsumer$1.class

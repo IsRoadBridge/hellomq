@@ -30,12 +30,18 @@
             <scope>test</scope>
         </dependency>
 
-        <!--引入mq依赖-->
+        <!--引入mq的spring boot依赖-->
         <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-amqp</artifactId>
+        </dependency>
+
+        <!--引入mq依赖-->
+<!--        <dependency>
             <groupId>com.rabbitmq</groupId>
             <artifactId>amqp-client</artifactId>
             <version>5.7.2</version>
-        </dependency>
+        </dependency>-->
     </dependencies>
 
     <build>

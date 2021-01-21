@@ -13,7 +13,7 @@ public class Consumer1 {
         Channel channel = connection.createChannel();
         String exchangeName = "logs_direct";
         //通道绑定交换机
-        channel.exchangeDeclare(exchangeName,"direct");
+        channel.exchangeDeclare(exchangeName,BuiltinExchangeType.DIRECT);
         //获取临时队列
         String queue = channel.queueDeclare().getQueue();
         //通道绑定指定队列，交换机，路由

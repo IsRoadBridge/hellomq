@@ -12,7 +12,7 @@ public class Consumer {
         Connection connection = MqUtil.getConnection();
         Channel channel = connection.createChannel();
         //通道绑定交换机
-        channel.exchangeDeclare("topics","topic");
+        channel.exchangeDeclare("topics",BuiltinExchangeType.TOPIC);
         String queue = channel.queueDeclare().getQueue();
         //通道绑定临时队列，交换机，路由key
         //通过两个通配符指定路由

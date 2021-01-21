@@ -10,6 +10,8 @@ import org.springframework.stereotype.Component;
 //指定消费者绑定哪个队列 队列属性默认是持久化，不独占队列，不自动删除队列
 //@Queue(value = "hello",declare = "true",autoDelete = "true") 可以通过declare和autoDelete进行修改
 @RabbitListener(queuesToDeclare = @Queue(value = "hello"))
+//常用的简便写法
+//@RabbitListener(queues = "hello")
 public class HelloConsumer {
 
     //通过RabbitHandler注解直接回调接口，message就是接收到的消息

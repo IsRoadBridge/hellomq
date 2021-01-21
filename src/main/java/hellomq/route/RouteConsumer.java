@@ -11,8 +11,8 @@ public class RouteConsumer {
 
     @RabbitListener(bindings = {
             @QueueBinding(value = @Queue,//创建临时队列
-                          exchange = @Exchange(value = "direct",type = "direct"),//指定交换机名字和类型
-                           key = {"info","error","warn"} //绑定具体的key
+                          exchange = @Exchange(value = "ex6",type = "direct"),//指定交换机名字和类型
+                           key = {"info","error","warn","k2"} //绑定具体的key
             )
     })
     public void receive1(String message){

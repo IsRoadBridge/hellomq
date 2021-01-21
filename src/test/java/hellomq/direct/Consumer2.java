@@ -11,13 +11,13 @@ public class Consumer2 {
 
         Connection connection = MqUtil.getConnection();
         Channel channel = connection.createChannel();
-        String exchangeName = "logs_direct";
-        channel.exchangeDeclare(exchangeName,"direct");
-        String queue = channel.queueDeclare().getQueue();
-        channel.queueBind(queue,exchangeName,"error");
-        channel.queueBind(queue,exchangeName,"info");
-        channel.queueBind(queue,exchangeName,"warning");
-        channel.basicConsume(queue,true,new DefaultConsumer(channel){
+        String exchangeName = "ex6";
+        //channel.exchangeDeclare(exchangeName,BuiltinExchangeType.DIRECT);
+        //String queue = channel.queueDeclare().getQueue();
+        //channel.queueBind(queue,exchangeName,"error");
+        //channel.queueBind(queue,exchangeName,"info");
+        //channel.queueBind(queue,exchangeName,"warning");
+        channel.basicConsume("queue4",false,new DefaultConsumer(channel){
 
             @Override
             public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) throws IOException {

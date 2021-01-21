@@ -2,6 +2,7 @@ package hellospringbootmq.hello;
 
 import hellomq.HellomqApplication;
 import org.junit.jupiter.api.Test;
+import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -12,12 +13,15 @@ public class Provider {
     //直接注入springboot提供给我们的模板类操作mq
     @Autowired
     private RabbitTemplate rabbitTemplate;
+    //AmqpTemplate也可以用来操作mq
+    @Autowired
+    private AmqpTemplate amqpTemplate;
 
     //直连模式
     @Test
     void hello(){
         //通过模板类发送消息，参数一：队列名 参数二：具体的消息
-        rabbitTemplate.convertAndSend("hello","hello spring boot mq");
+        rabbitTemplate.convertAndSend("ex6","k1","hello spring boot mq");
     }
 
     //工作队列模式，多个消费者轮询接收到消息

@@ -11,7 +11,7 @@ public class consumer1 {
         Connection connection = MqUtil.getConnection();
         Channel channel = connection.createChannel();
         //通道绑定交换机与生产者一致
-        channel.exchangeDeclare("logs","fanout");
+        channel.exchangeDeclare("logs",BuiltinExchangeType.FANOUT);
         //获取临时队列名
         String queueName = channel.queueDeclare().getQueue();
         //通道绑定临时队列 参数一：临时队列名  参数二：交换机名 参数三：路由key

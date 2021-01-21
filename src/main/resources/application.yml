@@ -7,3 +7,5 @@ spring:
     virtual-host: /ems   #虚拟主机
     username: ems        #绑定该虚拟主机的用户名
     password: 123        #绑定该虚拟主机的密码
+    publisher-confirm-type: simple  #开启消息确认模式
+    publisher-returns: true  #使用return机制

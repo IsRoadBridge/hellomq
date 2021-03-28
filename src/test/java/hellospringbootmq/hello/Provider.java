@@ -1,11 +1,15 @@
 package hellospringbootmq.hello;
 
 import hellomq.HellomqApplication;
+import org.assertj.core.util.Maps;
 import org.junit.jupiter.api.Test;
 import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+
+import java.util.HashMap;
+import java.util.Map;
 
 @SpringBootTest(classes = HellomqApplication.class)
 public class Provider {
@@ -53,4 +57,15 @@ public class Provider {
         rabbitTemplate.convertAndSend("topic","user.save.add","user.save.add 路由发送的消息");
     }
 
+    @Test
+    void  level(){
+        String level = "一级";
+        Map<String,String> levelMap = new HashMap<>();
+        levelMap.put("一级","1");
+        levelMap.put("二级","2");
+        levelMap.put("三级","3");
+        levelMap.put("四级","4");
+        level = levelMap.get(level) == null ? level.substring(0,1) : levelMap.get(level);
+        System.out.println(level);
+    }
 }
